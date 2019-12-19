@@ -4,6 +4,18 @@ package org.dev.baffle;
 //to make a given change V 
 class Coin 
 { 
+	
+	public static int getMinCoin(int[] coins, int value) {
+		if(value==0) return 0;
+		
+		for(int i=0;i<coins.length;i++) {
+			int sub_res=getMinCoin(coins, value-coins[i]);
+			return sub_res;
+		}
+		return 0;
+		
+	}
+	
  // m is size of coins array (number of different coins) 
  static int minCoins(int coins[], int m, int V) 
  { 
@@ -19,7 +31,9 @@ class Coin
       if (coins[i] <= V) 
       { 
           int sub_res = minCoins(coins, m, V-coins[i]); 
-    
+          
+          System.out.println(sub_res);
+          
           // Check for INT_MAX to avoid overflow and see if 
           // result can minimized 
           if (sub_res != Integer.MAX_VALUE && sub_res + 1 < res) 
@@ -28,7 +42,7 @@ class Coin
     } 
     return res; 
  } 
-}/* This code is contributed by Rajat Mishra */
+}
 
 public class CoinTest {
 	public static void main(String[] args) {
@@ -38,10 +52,11 @@ public class CoinTest {
 //		System.out.println(new Coin().getMinCoinToMakeSomeOf(input1, input2));
 		
 		
-	    int coins[] =  {5,10,2,1,10,5,1,1,2,1,10,2}; //{9, 6, 5, 1}; 
+	    int coins[] =  {9, 6, 5, 1}; //{5,10,2,1,10,5,1,1,2,1,10,2};
 	    int m = coins.length; 
-	    int V = 18; 
-	    System.out.println("Minimum coins required is "+ new Coin().minCoins(coins, m, V) ); 
+	    int V = 11;//18; 
+	    System.out.println("Minimum coins required is "+ new Coin().minCoins(coins, m, V) );
+	   // System.out.println(Integer.MAX_VALUE);
 		
 	}
 }

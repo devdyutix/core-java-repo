@@ -2,6 +2,7 @@ package org.dev.thread;
 
 
 class MyYield extends Thread{
+	
 	@Override
 	public void run() {
 		for(int i=0;i<10;i++) {
@@ -11,9 +12,11 @@ class MyYield extends Thread{
 	}
 }
 public class YieldJoinSleepTest{
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		MyYield t= new MyYield();
 		t.start();
+		
+		t.join();
 			
 		for(int i=0;i<10;i++) {
 			System.out.println("Main Thread");
