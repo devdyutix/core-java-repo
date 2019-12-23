@@ -1,4 +1,4 @@
-package org.dev.interview_test;
+package org.dev.baffle;
 
 import static org.junit.Assert.assertEquals;
 
