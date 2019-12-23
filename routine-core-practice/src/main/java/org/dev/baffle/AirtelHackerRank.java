@@ -37,6 +37,19 @@ public class AirtelHackerRank {
 		
 		return result;
 	}
+	/*
+   Two player A & B playing a game like, player A starts from beginning and choose first 2 numbers, and replace the second number from first from all over the array.
+   Similarly, player B start playing from next and choose 2 Number and doing same till the all arrays shouldn't be same.
+   find who will be winner
+   Note: suppose, player A first start the match. and the winner will be the Player who got Maximum chance to play.
+   
+   input:{1,3,3,2,2,1}
+   Player A start playing and choose first 2 number: 1 & 3 
+   Now 2 will be replaced by 1 from all over the Array like {1,1,1,2,2,1}
+	 * */
+	public static String findWinnerOfGame() {
+		return null;
+	}
 	public static void main(String[] args) {
 		int arr[]={900, 940, 950, 1100, 1500, 1800};
 		int dep[] = {910, 1200, 1120, 1130, 1900, 2000};
