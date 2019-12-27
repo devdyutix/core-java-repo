@@ -3,6 +3,9 @@ package org.dev.thread.concurrency;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
+/* Breaks the certain task into several workers and wait for the result to combine them.
+ * Fork- fork is a process which a task split it self into smaller and independent sub-tasks, which can be executed concurrently.  
+ * */
 public class ForkJJoinTest{
 	
 	static class Sum extends RecursiveTask<Long>{ 
