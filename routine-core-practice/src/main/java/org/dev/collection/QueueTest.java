@@ -1,29 +1,34 @@
 package org.dev.collection;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.Vector;
 import java.util.concurrent.ArrayBlockingQueue;
 
+/*Queue(I): Prior to processing FIFO
+ * if you want to represent a group of Individual objects Prior to processing, go to Queue.
+ * implementation classes in java.util package {AbstractQueue, PriorityQueue}
+ * implementation classes an Interface in java.util.concurrent package[{
+ * BlockingQueue(I) implementations {PriorityBlockingQueue, LinkedBlockingQueue, ArrayBlockingQueue, SynchronousLinkedQueue}
+ * ConcurrentLinkedQueue(C)
+ * }]
+ * */
 public class QueueTest {
-	public static void main(String[] args) throws InterruptedException {
-
-		ArrayBlockingQueue q=new ArrayBlockingQueue(5);
-		q.offer("A");
-		q.offer("B");
-		q.offer("C");
-		q.offer("D");
-		//q.offer("F");
-	
-		Iterator itr=q.iterator();
-		while(itr.hasNext()){
-			String s=(String)itr.next();
-			if(s.equals("D")){
-				q.add("F");
-			}
-		}
-		System.out.println(q);
+	public static void main(String[] args) {
+		
+		Queue queue=new ArrayBlockingQueue(10);
+		queue.offer(10);
+		queue.offer("ABC");
+		queue.offer(11);
+		queue.offer(12);
+		queue.offer(13);
+		queue.offer(14);
+		queue.offer(15);
+		queue.offer(13);
+		queue.offer(14);
+		queue.offer(15);
+		queue.offer(20);
+		queue.offer(21);
+		
+		System.out.println(queue);
+		
 	}
 }

@@ -32,18 +32,18 @@ class MyThread extends Thread{
 
 public class VolatileTest {
 	public static void main(String[] args) throws InterruptedException {
-//		Counter counter=new Counter();
-//		Thread[] threads=new Thread[2];
-//		
-//		for(int i=0;i<threads.length;++i) {
-//			threads[i]=new MyThread(counter);
-//		}
-//		for(int i=0;i<threads.length;++i) {
-//			threads[i].start();
-//		}
-//		for(int i=0;i<threads.length;++i) {
-//			threads[i].join();
-//		}
+		Counter counter=new Counter();
+		Thread[] threads=new Thread[2];
+		
+		for(int i=0;i<threads.length;++i) {
+			threads[i]=new MyThread(counter);
+		}
+		for(int i=0;i<threads.length;++i) {
+			threads[i].start();
+		}
+		for(int i=0;i<threads.length;++i) {
+			threads[i].join();
+		}
 		
 
 		
