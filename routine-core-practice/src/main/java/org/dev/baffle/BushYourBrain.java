@@ -1,9 +1,16 @@
 package org.dev.baffle;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
-class Program{
+public class BushYourBrain {
+	
 	public static void findMaxMeetingInRoom(int s[], int f[]) {
 		if(s.length!=f.length)
 			System.out.println("Inputs not valid");
@@ -60,8 +67,90 @@ class Program{
 		}System.out.println("SIZE:"+set.size());
 		return count;
 	}
-}
-public class BushYourBrain {	
+	/* P-2
+	 * N=4 and Start=3 
+	 * output: 3 44 555 555 44 3
+	 * */
+	public static void printPattern(int N) {
+		int start=N-1;
+		int count=0;
+		int last=0;
+		for(int i=0;i<N-1;i++) {
+			count=i+1;
+			int k=0;
+			while(k<count) {
+				last=start+i;
+				System.out.print(start+i);
+				k++;
+			}
+			System.out.println(" ");
+		}
+		count=count+1;
+		for(int i=N;i>0;i--) {
+			int k=0;
+			count--;
+			
+			if(i==N) {
+				while(k<count) {
+					System.out.print(last);
+					k++;
+				}
+			}else {
+				last--;
+				while(k<count) {
+					System.out.print(last);
+					k++;
+				}
+			}
+			System.out.println(" ");
+		}
+	}
+	
+	/*P-3, find the occurrence of character in the string
+	 * ex: input: "sprogsramsab"
+	 * Write a program tofind the occurrence of each character in the word.
+	 * */
+	public static void printOccurrence(String input) {
+		Map map=new LinkedHashMap();
+		for(int i=0;i<input.length();i++) {
+			Integer dup=(Integer)map.put(String.valueOf(input.charAt(i)), 1);
+			if(dup!=null) {
+				String repeatedchar=String.valueOf(input.charAt(i));
+				map.put(repeatedchar, dup+1);
+				
+			}
+		}
+		Set set=map.entrySet();
+		Iterator itr=set.iterator();
+		System.out.println("Printing occurrence of character in a given String "+"\n");
+		while(itr.hasNext()) {
+			Map.Entry mp=(Map.Entry) itr.next();
+			System.out.println(mp.getKey()+" : has "+mp.getValue()+" occurrence");
+		}
+	}
+	/* P-4, print the 1st occurrence of repeated character in a Given String
+	 * ex: input: "sprogsramsab"
+	 * output: s first occurrence at 0
+	 * 		   r first occurrence at 2
+	 *         ....
+	 * */
+	public static void printFirstOccurrence(String input) {
+		Map map=new LinkedHashMap();
+		for(int i=0;i<input.length();i++) {
+			String strchar=String.valueOf(input.charAt(i));
+			Integer dup=(Integer)map.put(strchar, i);
+		}
+		
+		List keys = new ArrayList(map.keySet());
+		for (int i = 0; i < keys.size(); i++) {
+		    Object obj = keys.get(i);
+		    System.out.println("first occurrence of "+obj+" is: "+i);
+		}
+		
+		//System.out.println(map);
+	}
+	
+	
 	public static void main(String[] args) {
 //		int s[]= {1, 3, 0, 5, 8, 5};
 //		int f[]= {2, 4, 6, 7, 9, 9};
@@ -72,9 +161,23 @@ public class BushYourBrain {
 		
 		/* Count all substring having character K
 		 * */
-		String input="geeksforgeeks";
-		String ch="k";
-		int count=Program.countAllSubstring(input, ch);
-		System.out.println("OUTPUT: "+count);
+//		String input="geeksforgeeks";
+//		String ch="k";
+//		int count=Program.countAllSubstring(input, ch);
+//		System.out.println("OUTPUT: "+count);
+		
+		// p-2 
+		//printPattern(50);
+		
+		// P-3
+//		String input="sprogsramsabr";
+//		printOccurrence(input);
+		
+		// P-4
+//		String input="sprogsramsabr";
+//		printFirstOccurrence(input);
+
+
+		
 	}
 }

@@ -1,5 +1,6 @@
 package org.dev.baffle;
 
+import java.util.Scanner;
 
 /*Immutable class Test*/
 final class Test{
@@ -56,11 +57,35 @@ class Student{
 		return ss;
 	}
 }
-
 public class InterviewTest{
 	
-	
-	public static void main(String[] args) throws CloneNotSupportedException{
+	public static String reverseString(String input) {
+		char[] ch=input.toCharArray();
+		for(int i=ch.length-1;i>=0;i--) {
+			if(ch[i]==32) {
+				int j=i+1;	
+				while(j<ch.length && ch[j]!=32) {
+					System.out.print(ch[j]);
+					j++;
+				}
+				System.out.print(" ");
+			}else if(i==0) {
+				int j=i;
+				while(j<ch.length && ch[j]!=32) {
+					System.out.print(ch[j]);
+					j++;
+				}
+			}
+			
 
-	}	
+		}
+		return null;
+	}
+	
+	public static void main(String[] args) {
+		String input="ARNAV IS GOOD BOY";
+		
+		reverseString(input);
+		
+	}
 }
