@@ -1,7 +1,7 @@
 package org.dev.baffle;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -148,9 +148,26 @@ public class BushYourBrain {
 		}
 		
 		//System.out.println(map);
+	}	
+	/* Program to remove duplicate and print distinct number only.
+	 * Ex: {1,4,2,3,1,2,3} -> {1,2,3,4} either in sorted order or non-sorted order
+	 * */
+	public static void removeDuplicates(int[] arr) {
+		for(int i=0;i<arr.length;i++) {
+			for(int j=i+1;j<arr.length;j++) {
+				if(arr[i]==arr[j]) {
+					//System.out.print(arr[i]+" ");
+					arr[i]=0;
+				}
+			}
+		}
+		for(int i=0;i<arr.length;i++) {
+			if(arr[i]!=0) {
+				System.out.print(arr[i]+" ");
+			}
+		}
+		
 	}
-	
-	
 	public static void main(String[] args) {
 //		int s[]= {1, 3, 0, 5, 8, 5};
 //		int f[]= {2, 4, 6, 7, 9, 9};
@@ -176,8 +193,12 @@ public class BushYourBrain {
 		// P-4
 //		String input="sprogsramsabr";
 //		printFirstOccurrence(input);
-
-
+		
+		// P-5
+		int[] testcase1_arr= {1,4,2,3,1,2,3};
+		int[] testcase2_arr= {1,4,2,3,1,2,3,6,9,10,7};// {1,2,3,6,7,9,10}
+		int[] testcase3_arr= {6,9,10,7,6,1,3,4,5,4,9,2,8};// {1,2,3,4,5,6,7,8,9,10}
+		removeDuplicates(testcase1_arr);
 		
 	}
 }
