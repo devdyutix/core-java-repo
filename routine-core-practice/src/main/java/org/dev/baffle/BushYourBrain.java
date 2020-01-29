@@ -149,7 +149,8 @@ public class BushYourBrain {
 		
 		//System.out.println(map);
 	}	
-	/* Program to remove duplicate and print distinct number only.
+	/* P-5
+	 * Program to remove duplicate and print distinct number only.
 	 * Ex: {1,4,2,3,1,2,3} -> {1,2,3,4} either in sorted order or non-sorted order
 	 * */
 	public static void removeDuplicates(int[] arr) {
@@ -167,6 +168,20 @@ public class BushYourBrain {
 			}
 		}
 		
+	}
+	/* P-6
+	 * Program to Print patterns
+	 * */
+	public static void printPiyamid(int N) {
+		for(int i=0;i<N;i++) {
+			for(int j=N-i;j>1;j--) {
+				System.out.print(" ");
+			}
+			for(int j=0;j<=i;j++) {
+				System.out.print("* ");
+			}
+			System.out.println(" ");
+		}
 	}
 	public static void main(String[] args) {
 //		int s[]= {1, 3, 0, 5, 8, 5};
@@ -195,10 +210,14 @@ public class BushYourBrain {
 //		printFirstOccurrence(input);
 		
 		// P-5
-		int[] testcase1_arr= {1,4,2,3,1,2,3};
-		int[] testcase2_arr= {1,4,2,3,1,2,3,6,9,10,7};// {1,2,3,6,7,9,10}
-		int[] testcase3_arr= {6,9,10,7,6,1,3,4,5,4,9,2,8};// {1,2,3,4,5,6,7,8,9,10}
-		removeDuplicates(testcase1_arr);
+//		int[] testcase1_arr= {1,4,2,3,1,2,3};
+//		int[] testcase2_arr= {1,4,2,3,1,2,3,6,9,10,7};// {1,2,3,6,7,9,10}
+//		int[] testcase3_arr= {6,9,10,7,6,1,3,4,5,4,9,2,8};// {1,2,3,4,5,6,7,8,9,10}
+//		removeDuplicates(testcase1_arr);
+		
+		// P-6
+		int N=5;
+		printPiyamid(N);
 		
 	}
 }
