@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
+/** forEach: java forEach is a utility method to iterate over a Collection or Stream and perform certain action on each element of it.
+ *  Consumer: is a @FunctionalInterface and can therefore be used as a assignment target for lambda expression or method reference.
+ *  contains abstract method "action" to perform on lambda expression.
+ * */
 public class ForEachTest {
 	public static void main(String[] args) {
 		// 1. java8 stream forEach example

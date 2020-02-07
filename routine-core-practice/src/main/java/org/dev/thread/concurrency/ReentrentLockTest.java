@@ -58,6 +58,7 @@ class Mythread3 extends Thread{
 class Mythread4 extends Thread{
 	
 	static ReentrantLock re=new ReentrantLock();
+	int i=0;
 	
 	@Override
 	public void run() {
@@ -72,9 +73,11 @@ class Mythread4 extends Thread{
 						e.printStackTrace();
 					}
 					re.unlock();
+					System.out.println(Thread.currentThread().getName()+".."+"got the releases the lock");
 				}else {
 					System.out.println(Thread.currentThread().getName()+".."+"unable to get lock and hence performing alternate operation");
 				}
+				i++;
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
