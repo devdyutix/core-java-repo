@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -12,6 +13,7 @@ import java.util.TreeMap;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -88,8 +90,33 @@ public class CredentialsManagmentProgram {
 		}
 	}
 	
+	public static void appendExistingExcelFile() throws IOException {
+		String FILE_NAME="C:\\Users\\Dev\\Desktop\\ecentric\\student.xlsx";
+		try {
+			InputStream inp=new FileInputStream(FILE_NAME);
+			XSSFWorkbook workbook = new XSSFWorkbook(inp); 
+			Sheet sheet = workbook.getSheetAt(0); 
+			
+			int num = sheet.getLastRowNum();
+			Row row = sheet.createRow(++num);
+			row.createCell(0).setCellValue("6");
+			row.createCell(1).setCellValue("Devdyuti");
+			row.createCell(2).setCellValue("SINGH");
+			
+			
+			FileOutputStream fileOut = new FileOutputStream(FILE_NAME); 
+			workbook.write(fileOut);
+			fileOut.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	
 	public static void main(String[] args) throws IOException {
-		readExcelFile();
+		//writeExcelFile();
+		//readExcelFile();
+		appendExistingExcelFile();
 	}
 }
