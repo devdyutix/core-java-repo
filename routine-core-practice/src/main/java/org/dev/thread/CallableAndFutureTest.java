@@ -48,24 +48,61 @@ class MyCallable implements Callable{
 	
 }
 
+
+class MyRunnable implements Runnable{
+
+	int num=0;
+	
+	public MyRunnable(int num) {
+		this.num=num;
+	}
+
+	@Override
+	public void run() {
+		System.out.println(Thread.currentThread().getName()+" is responsible to find sum of first "+num+" numbers");
+		int sum=0;
+		for(int i=1;i<num;i++) {
+			sum=sum+i;
+		}
+		
+	}
+	
+}
+
 class CallableAndFutureTest {
 	
 	
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		
 		
-		MyCallable[] jobs= {new MyCallable(10),
-							new MyCallable(20),
-							new MyCallable(30),
-							new MyCallable(15),
-							new MyCallable(25)
-							};
+//		MyCallable[] jobs= {new MyCallable(10),
+//							new MyCallable(20),
+//							new MyCallable(30),
+//							new MyCallable(15),
+//							new MyCallable(25)
+//							};
+//		
+//		ExecutorService service=Executors.newFixedThreadPool(3);
+//		
+//		for (MyCallable job : jobs) {
+//			Future f=service.submit(job);
+//			System.out.println(f.get());
+//		}
+//		service.shutdown();
 		
+		
+		MyRunnable[] jobs= {new MyRunnable(10),
+				new MyRunnable(20),
+				new MyRunnable(30),
+				new MyRunnable(15),
+				new MyRunnable(25)
+				};
+
 		ExecutorService service=Executors.newFixedThreadPool(3);
 		
-		for (MyCallable job : jobs) {
-			Future f=service.submit(job);
-			System.out.println(f.get());
+		for (MyRunnable job : jobs) {
+		Future f=service.submit(job);
+		System.out.println(f.get());
 		}
 		service.shutdown();
 		
