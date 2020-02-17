@@ -21,6 +21,18 @@
       <version>4.8.2</version>
       <scope>test</scope>
     </dependency>
+    <!-- MS Excel read/write-->
+    <dependency> 
+      <groupId>org.apache.poi</groupId> 
+      <artifactId>poi</artifactId> 
+      <version>3.12</version> 
+	</dependency> 
+	<dependency> 
+      <groupId>org.apache.poi</groupId> 
+      <artifactId>poi-ooxml</artifactId> 
+      <version>3.12</version> 
+	</dependency> 
+    
   </dependencies>
   
   <build>
