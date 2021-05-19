@@ -47,7 +47,7 @@
         </configuration>
       </plugin>
       
-      <!-- JaCoCo test code coverage Reporting Plugin -->
+      <!-- JaCoCo test code coverage Reporting Plugin .-->
       <plugin>
 		<groupId>org.jacoco</groupId>
 		<artifactId>jacoco-maven-plugin</artifactId>
