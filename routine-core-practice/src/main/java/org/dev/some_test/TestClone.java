@@ -9,7 +9,5 @@ public class TestClone{
 		
 		Devdyuti dy=new Devdyuti();
 		
-		Devdyuti clone=(Devdyuti) dy.testPro();
-		
 	}
 }
