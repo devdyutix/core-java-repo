@@ -20,11 +20,18 @@ class Temp{
 	}
 }
 public class HashMapTest {
+	
+    static int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }
+	
 	public static void main(String[] args) {
 				
 		
-		//HashMap<Temp , String> mp=new HashMap<Temp , String>();
+		HashMap<Temp , String> mp=new HashMap<Temp , String>();
 		HashSet<Temp> hs=new HashSet<Temp>();
+//		Hashtable<String, String> ht=new Hashtable<String, String>();
 		
 		hs.add(new Temp(5));
 		hs.add(new Temp(2));
@@ -45,7 +52,15 @@ public class HashMapTest {
 		mp.put(new Temp(4), "H");
 		mp.put(new Temp(8), "I");*/
 		
-		System.out.println(hs);
+		mp.put(null, "A");
+		mp.put(null, "B");
+		
+//		ht.put("A", null);
+		
+		String str="ABC";
+		System.out.println(new HashMapTest().hash(str));
+		
+	
 		
 		
 		
